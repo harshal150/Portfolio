@@ -8,28 +8,30 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className="xs:w-[250px] w-full">
+  <Tilt className="xs:w-[220px] w-full transform transition-all duration-300 hover:scale-105">
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+      className="w-full p-[1px] rounded-[15px] bg-gradient-to-br from-indigo-600 via-purple-500 to-pink-500 shadow-lg hover:shadow-xl"
     >
       <div
         options={{
-          max: 45,
-          scale: 1,
+          max: 25,
+          scale: 1.05,
           speed: 450,
         }}
-        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+        className="bg-gray-900 rounded-[15px] py-6 px-6 min-h-[240px] flex flex-col justify-center items-center transform transition duration-300 hover:-translate-y-1"
       >
-        <img
-          src={icon}
-          alt="web-development"
-          className="w-16 h-16 object-contain"
-        />
+        <div className="flex justify-center items-center bg-gradient-to-br from-white to-gray-200 p-3 rounded-full shadow-md transform transition-all duration-300 hover:rotate-[10deg]">
+          <img src={icon} alt="service-icon" className="w-12 h-12 object-contain" />
+        </div>
 
-        <h3 className="text-white text-[20px] font-bold text-center">
+        <h3 className="text-white text-[18px] font-bold text-center mt-4 leading-tight">
           {title}
         </h3>
+
+        <button className="mt-4 py-1 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full text-white font-medium shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105">
+          Explore
+        </button>
       </div>
     </motion.div>
   </Tilt>
@@ -39,8 +41,7 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={styles.sectionHeadText}>About</h2>
       </motion.div>
 
       <motion.p
@@ -49,19 +50,22 @@ const About = () => {
       >
         I'm a skilled software developer with experience in JavaScript,
         TypeScript, Java, Python and expertise in frameworks like React,
-        Node.js, Angular, Next.js and Three.js. I'm a quick learner and
+        Node.js, Angular, Next.js, and Three.js. I'm a quick learner and
         collaborate closely with clients to create efficient, scalable, and
         user-friendly solutions that solve real-world problems. Let's work
         together to bring your ideas to life!
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
+      <div className="mt-16 flex gap-6  no-scrollbar ">
+        <div className="flex flex-nowrap gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} index={index} {...service} />
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
 export default SectionWrapper(About, "about");
+
