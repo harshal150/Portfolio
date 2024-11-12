@@ -11,12 +11,21 @@ import {
   Works,
   StarsCanvas,
 } from "./components";
+import bgherovideo from './assets/video/herovideo.mp4';
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <div className="relative">
+        <video
+            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+            src={bgherovideo}
+            type="video/mp4"
+            autoPlay
+            loop
+            muted
+          />
           <Navbar />
           <Hero />
         </div>
