@@ -29,9 +29,9 @@ const ServiceCard = ({ index, title, icon }) => (
           {title}
         </h3>
 
-        <button className="mt-4 py-1 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full text-white font-medium shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105">
+        {/* <button className="mt-4 py-1 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full text-white font-medium shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105">
           Explore
-        </button>
+        </button> */}
       </div>
     </motion.div>
   </Tilt>
@@ -48,16 +48,11 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled software developer with experience in JavaScript,
-        TypeScript, Java, Python and expertise in frameworks like React,
-        Node.js, Angular, Next.js, and Three.js. I'm a quick learner and
-        collaborate closely with clients to create efficient, scalable, and
-        user-friendly solutions that solve real-world problems. Let's work
-        together to bring your ideas to life!
+        Passionate Software Engineer with a Master’s in Computer Applications and 1 year of hands-on experience in FullStack development, specializing in ReactJS, NodeJS, ExpressJS, and TypeScript. Proficient in building dynamic, high-performance applications with a strong foundation in RESTful APIs, MySQL, and Redux. Always eager to explore innovative solutions and currently open to new opportunities to leverage my skills in impactful projects!
       </motion.p>
 
-      <div className="mt-16 flex gap-6  no-scrollbar ">
-        <div className="flex flex-nowrap gap-6">
+      <div className="mt-16 flex flex-wrap gap-6 no-scrollbar">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap gap-6 w-full">
           {services.map((service, index) => (
             <ServiceCard key={service.title} index={index} {...service} />
           ))}
@@ -66,6 +61,7 @@ const About = () => {
     </>
   );
 };
+
 
 export default SectionWrapper(About, "about");
 

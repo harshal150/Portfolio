@@ -12,6 +12,7 @@ import {
   StarsCanvas,
 } from "./components";
 import bgherovideo from './assets/video/herovideo.mp4';
+import Education from "./components/Education";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Experience />
         <Tech />
         <Works />
+        <Education/>
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />
